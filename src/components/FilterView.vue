@@ -211,7 +211,7 @@ export default {
   padding-top: 2.133333vw;
   position: absolute;
   width: 100%;
-  z-index: 4;
+  z-index: 10;
   left: 0;
   top: 24.533333vw;
 }

@@ -1,9 +1,11 @@
 <template>
   <div class="index-container">
-    <div class="index-shopInfo">
+    <div class="index-shopInfo" @click="$router.push('/shop')">
+      <!-- 左侧 -->
       <div class="logo_container">
         <img :src="restaurants.image_path" alt>
       </div>
+      <!-- 右侧 -->
       <div class="index_main">
         <div class="index_shopname">
           <i v-if="restaurants.is_premium">品牌</i>
@@ -80,7 +82,7 @@ export default {
   overflow: hidden;
   flex-direction: column;
   padding-left: 2.666667vw;
-  font-size: 0.2rem;
+  font-size: 0.66rem;
   flex-grow: 1;
 }
 .index_shopname {

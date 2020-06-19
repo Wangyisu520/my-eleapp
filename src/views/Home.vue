@@ -91,7 +91,7 @@ export default {
         this.entries = res.data.entries;
       });
       this.$axios("/api/profile/filter").then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.filterData = res.data;
       });
       this.loadData();
@@ -103,7 +103,7 @@ export default {
       this.$axios
         .post(`/api/profile/restaurants/${this.page}/${this.size}`,this.data)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
           this.$refs.loadmore.onTopLoaded();
           this.restaurants = res.data;
         });
@@ -150,7 +150,7 @@ export default {
 .home {
   width: 100%;
   height: 100%;
-  /* overflow: auto; */
+  overflow: auto;
   box-sizing: border-box;
 }
 

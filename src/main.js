@@ -5,6 +5,7 @@ import store from './store'
 import axios from 'axios'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
+// import qs from 'qs'
 
 import {Indicator} from 'mint-ui';
 
@@ -15,9 +16,16 @@ Vue.prototype.$axios = axios
 
 Vue.use(MintUI)
 
+axios.defaults.baseURL='https://ele-interface.herokuapp.com'
+
 axios.interceptors.request.use(
   config => {
-    Indicator.open();
+    // if(config.method =='post'){
+    //   config.data = qs.stringify(config.data)
+    // }
+    Indicator.open({
+      spinnerType: 'fading-circle'
+    });
     return config;
   },
   error => {

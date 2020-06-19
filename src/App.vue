@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
 
         function onComplete(data) {
           // data是具体的定位信息
-   
+
           self.$store.dispatch("setLocation", data);
           self.$store.dispatch("setAddress", data.formattedAddress);
         }
@@ -45,7 +47,7 @@ export default {
         citySearch.getLocalCity(function(status, result) {
           if (status === "complete" && result.info === "OK") {
             // 查询成功，result即为当前所在城市信息
-            
+
             AMap.plugin("AMap.Geocoder", function() {
               var geocoder = new AMap.Geocoder({
                 // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
@@ -57,7 +59,7 @@ export default {
               geocoder.getAddress(lnglat, function(status, data) {
                 if (status === "complete" && data.info === "OK") {
                   // result为对应的地理位置详细信息
-                  
+
                   self.$store.dispatch("setLocation", {
                     addressComponent: {
                       city: result.city,
@@ -67,7 +69,7 @@ export default {
                   });
                   self.$store.dispatch(
                     "setAddress",
-                   data.regeocode.formattedAddress
+                    data.regeocode.formattedAddress
                   );
                 }
               });
@@ -85,6 +87,6 @@ export default {
   width: 100%;
   height: 100%;
   font-size: 14px;
-  background-color: #f1f1f1;
+  background: #f1f1f1;
 }
 </style>

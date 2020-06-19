@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-button is-left" v-show="isLeft">
             <i class="fa fa-chevron-left"></i>
-            <button @click="$router.push('/home')">返回</button>
+            <button @click="$router.go(-1)">返回</button>
         </div>
         <div class="header-title">{{title}}</div>
     </div>
